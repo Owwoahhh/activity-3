@@ -1,0 +1,20 @@
+   name: CI
+
+   on:
+     push:
+       branches: [ main ]
+     pull_request:
+       branches: [ main ]
+
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+       steps:
+         - name: Get the code
+           uses: actions/checkout@v4
+
+         - name: Run hello program
+           run: python3 hello.py
+
+         - name: Run the test
+           run: python3 test.py
